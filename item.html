@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>商品詳情</title>
+  <style>
+    body { font-family: sans-serif; padding: 30px; }
+    .container { max-width: 600px; margin: auto; }
+    img { width: 100%; height: auto; }
+    .back { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container" id="detail">載入中...</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+fetch('products.json')
+  .then(res => res.json())
+  .then(data => {
+    const product = data[id];
+    const detail = document.getElementById('detail');
+    if (!product) {
+      detail.innerHTML = '<p>找不到此商品。</p><a href="index.html">← 返回菜單</a>';
+      return;
+    }
+    detail.innerHTML = `
+      <h1>${product.name}</h1>
+      <img src="${product.img}" alt="${product.name}">
+      <p><strong>價格：</strong>$${product.price}</p>
+      <p><strong>說明：</strong>${product.desc}</p>
+      <div class="back"><a href="index.html">← 返回菜單</a></div>
+    `;
+  });
+</script>
+</body>
+</html>
