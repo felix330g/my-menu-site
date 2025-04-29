@@ -1,0 +1,230 @@
+<?php
+// 圖片資料夾設定
+$categories = [
+    '蛋糕' => '1',
+    '飲料' => '2',
+    '炸物' => '3'
+];
+$prefixes = [
+    '1' => '蛋糕商品',
+    '2' => '飲料商品',
+    '3' => '炸物商品'
+];
+
+$main_images = [];
+$other_images = [];
+
+// 輪播用固定圖片 (找1_00、2_00、3_00)
+$carousel_images = [];
+
+foreach ($categories as $name => $folder) {
+    // 同時找jpg和png
+    $images = array_merge(
+        glob("$folder/*.jpg"),
+        glob("$folder/*.png")
+    );
+
+    // 主圖設定 (第一張圖)
+    if (count($images) > 0) {
+        $main_images[$name] = $images[0];
+        $other_images[$name] = array_slice($images, 1);
+    }
+
+    // 專門處理輪播圖(找1_00、2_00、3_00)
+    $carousel_candidates = [
+        "$folder/{$folder}_00.jpg",
+        "$folder/{$folder}_00.png"
+    ];
+    foreach ($carousel_candidates as $candidate) {
+        if (file_exists($candidate)) {
+            $carousel_images[] = $candidate;
+            break;
+        }
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>美食購物網站</title>
+<style>
+body { 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    background: #0D0D0D; /* 全站主背景黑色 */
+    color: #F2F0F0; /* 字體用淺灰白 */
+}
+
+.navbar { 
+    background: #403C3B; /* 深灰褐 */
+    color: #F2F0F0; 
+    padding: 15px; 
+    text-align: center; 
+    font-size: 20px; 
+}
+
+.carousel { 
+    width: 100%; 
+    height: 400px; 
+    overflow: hidden; 
+    position: relative; 
+    background: #0D0D0D; /* 輪播也黑底 */
+}
+.carousel img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.categories { 
+    display: flex; 
+    margin-top: 10px; 
+}
+
+.category { 
+    flex: 1; 
+    border: 1px solid #403C3B; /* 邊框深灰褐 */
+    margin: 10px; 
+    background: #403C3B; /* 分類卡片用深灰底 */
+    border-radius: 10px; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.main-img { 
+    flex: 7; 
+}
+.main-img img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-bottom: 1px solid #A69FA0; /* 主圖底線用淺灰紫 */
+}
+
+.other-imgs { 
+    flex: 3; 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+    padding: 10px; 
+    background: #403C3B; /* 小圖區背景也是深灰褐 */
+}
+
+.other-imgs a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #F2F0F0; /* 小圖文字用白色 */
+    background: #736E6E; /* 小卡片用中灰色 */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.other-imgs a:hover {
+    transform: scale(1.05);
+    background: #A69FA0; /* hover時亮灰紫 */
+    color: #0D0D0D; /* 文字變黑色，反差感 */
+}
+
+.item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.small-img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+.item-text {
+    padding: 5px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+footer { 
+    background: #403C3B; 
+    color: #F2F0F0; 
+    text-align: center; 
+    padding: 15px; 
+    margin-top: 20px; 
+    font-size: 14px; 
+}
+</style>
+
+ 
+</head>
+<body>
+
+<!-- 功能列 -->
+<div class="navbar">
+    首頁｜蛋糕｜飲料｜炸物｜購物車｜會員登入
+</div>
+
+<!-- 輪播首頁大圖 -->
+<div class="carousel" id="carousel"></div>
+
+<!-- 三大分類 -->
+<div class="categories">
+<?php foreach ($categories as $name => $folder): 
+    $counter = 1; // 每個分類從1開始計數
+?>
+    <div class="category">
+        <div class="main-img">
+            <img src="<?php echo $main_images[$name]; ?>" alt="<?php echo $name; ?>">
+        </div>
+        <div class="other-imgs">
+            <?php foreach ($other_images[$name] as $img): ?>
+                <a href="main2.php?img=<?php echo urlencode($img); ?>">
+
+                    <div class="item-card">
+                        <img src="<?php echo $img; ?>" alt="小圖" class="small-img">
+                        <div class="item-text">
+                            <?php echo $prefixes[$folder] . $counter++; ?>
+                        </div>
+                    </div>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
+
+<!-- 頁尾 -->
+<footer>
+    © 2025 美食購物網站 | 公司名稱 FoodShop Inc. | 聯絡電話: (02)1234-5678
+</footer>
+
+<script>
+// 輪播邏輯
+const carouselImages = [
+    <?php foreach ($carousel_images as $img): echo "'$img',"; endforeach; ?>
+];
+
+let current = 0;
+const carousel = document.getElementById('carousel');
+function showCarousel() {
+    carousel.innerHTML = '<img src="' + carouselImages[current] + '">';
+    current = (current + 1) % carouselImages.length;
+}
+setInterval(showCarousel, 3000); // 每3秒切換
+showCarousel();
+
+// 點小圖開新視窗
+function openImage(imgSrc) {
+    const newWindow = window.open('', '_blank');
+    newWindow.document.write('<img src="' + imgSrc + '" style="width:100%;">');
+}
+</script>
+
+</body>
+</html>
+
+
+

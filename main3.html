@@ -1,0 +1,47 @@
+<?php
+$categories = [
+    '蛋糕' => '1',
+    '飲料' => '2',
+    '炸物' => '3'
+];
+
+function getImages($folder) {
+    $images = [];
+    $extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+    foreach ($extensions as $ext) {
+        $images = array_merge($images, glob("$folder/*.$ext"));
+    }
+    return $images;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>美食圖片展示</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .category { margin-bottom: 40px; }
+        .category h2 { color: #333; }
+        .images { display: flex; flex-wrap: wrap; gap: 10px; }
+        .images img { width: 200px; height: auto; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+<h1>🍰 美食分類展示</h1>
+
+<?php foreach ($categories as $label => $folder): ?>
+    <div class="category">
+        <h2><?= htmlspecialchars($label) ?></h2>
+        <div class="images">
+            <?php foreach (getImages($folder) as $img): ?>
+                <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($img) ?>">
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+</body>
+</html>
