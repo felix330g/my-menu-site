@@ -33,31 +33,35 @@
     .error {
       color: red;
     }
-     .back-button {
-    margin-top: 25px;
+    <style>
+  .back-button {
+    text-align: center;
+    margin-top: 30px;
   }
 
-  .fancy-button {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  .styled-button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
     border: none;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     padding: 12px 28px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  .fancy-button:hover {
-    background: linear-gradient(135deg, #5a4bcf, #928bfe);
-    transform: scale(1.05);
+  .styled-button:hover {
+    background: linear-gradient(135deg, #5a0eb4, #1e63e5);
+    transform: scale(1.04);
   }
 
-  .fancy-button:active {
+  .styled-button:active {
     transform: scale(0.98);
   }
+</style>
+
   </style>
 </head>
 <body>
@@ -70,10 +74,11 @@
     <p id="productPrice" class="price"></p>
     <p id="productDescription"></p>
     <p id="errorMsg" class="error"></p>
-  <div class="fancy-button">
-      <a href="index.html">
-        <button>⬅ 回到菜單首頁</button>
-      </a>
+ <div class="back-button">
+  <a href="menu1.html">
+    <button class="styled-button">⬅ 回到菜單首頁</button>
+  </a>
+</div>
     </div>
   
   </div>
