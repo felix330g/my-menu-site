@@ -16,7 +16,7 @@
     { "id": "14", "name": "豬排骨冬粉", "englishName": "Pork ribs clear noodles", "price": 80, "description": "排骨湯鮮香，冬粉滑順" },
     { "id": "15", "name": "雞肉冬粉", "englishName": "Chicken clear noodles", "price": 80, "description": "雞湯濃郁，搭配爽口冬粉" },
     { "id": "16", "name": "海鮮冬粉", "englishName": "Seafood clear noodles", "price": 100, "description": "新鮮海味，湯頭鮮甜順口" },
-    { "id": "17", "name": "炸春捲（一個）", "englishName": "Fried spring rolls", "price": 20, "description": "外酥內嫩的小巧點心" }
+    { "id": "17", "name": "炸春捲（一個）", "englishName": "Fried spring rolls", "price": 20, "description": "外酥內嫩的小巧點心" },
 
     
 
@@ -68,14 +68,14 @@
       "englishName": "Vegetarian Bento",
       "price": 80,
       "description": "無肉料理，清爽健康"
-    }
+    },
      {
       "id": "25",
       "name": "控肉飯包",
       "englishName": "Braised Pork Bento",
       "price": 85,
       "description": "每位控肉，肥肉控的最愛"
-    },
+    }
  
 
 
