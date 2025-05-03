@@ -66,7 +66,7 @@
       .then(data => {
         const menu = document.getElementById('menuList');
         data.products
-          .filter(product => Number(product.id) <= 17)
+           .filter(product => parseInt(product.id) <= 17)
           .forEach(product => {
             const a = document.createElement('a');
             a.href = `GET_Product.html?id=${product.id}`;
