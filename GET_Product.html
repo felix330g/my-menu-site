@@ -33,24 +33,30 @@
     .error {
       color: red;
     }
-    .back-button {
+     .back-button {
     margin-top: 25px;
   }
-  .pretty-button {
-    padding: 10px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+
+  .fancy-button {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
     border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 28px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
+    transition: all 0.3s ease;
   }
-  .pretty-button:hover {
-    background: linear-gradient(135deg, #66BB6A, #388E3C);
+
+  .fancy-button:hover {
+    background: linear-gradient(135deg, #5a4bcf, #928bfe);
     transform: scale(1.05);
+  }
+
+  .fancy-button:active {
+    transform: scale(0.98);
   }
   </style>
 </head>
