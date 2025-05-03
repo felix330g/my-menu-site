@@ -52,7 +52,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
 
-    fetch('Products.json')
+    fetch('Products2.json')
       .then(res => res.json())
       .then(data => {
         const product = data.products.find(p => p.id === productId);
