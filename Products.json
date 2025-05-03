@@ -1,21 +1,21 @@
 {
   "products": [
-    { "id": "1", "name": "牛肉河粉", "englishName": "Beef rice noodles", "price": 100, "image": "1.jpg" },
-    { "id": "2", "name": "豬肉河粉", "englishName": "Pork rice noodles", "price": 80, "image": "2.jpg" },
-    { "id": "3", "name": "豬排骨河粉", "englishName": "Pork ribs rice noodles", "price": 80, "image": "3.jpg" },
-    { "id": "4", "name": "雞肉河粉", "englishName": "Chicken rice noodles", "price": 80, "image": "4.jpg" },
-    { "id": "5", "name": "乾河粉", "englishName": "Rice noodles without soup", "price": 80, "image": "5.jpg" },
-    { "id": "6", "name": "海鮮河粉", "englishName": "Seafood rice noodles", "price": 100, "image": "6.jpg" },
-    { "id": "7", "name": "餛飩河粉", "englishName": "Wonton rice noodles", "price": 80, "image": "7.jpg" },
-    { "id": "8", "name": "素食乾河粉", "englishName": "Vegetarian rice noodles without soup", "price": 80, "image": "8.jpg" },
-    { "id": "9", "name": "台灣乾麵", "englishName": "Noodles without soup", "price": 70, "image": "9.jpg" },
-    { "id": "10", "name": "越南乾麵", "englishName": "Vietnamese noodles without soup", "price": 70, "image": "10.jpg" },
-    { "id": "11", "name": "炸春捲涼拌米線", "englishName": "Cold rice thread noodles with fried spring rolls", "price": 100, "image": "11.jpg" },
-    { "id": "12", "name": "牛肉冬粉", "englishName": "Beef clear noodles", "price": 100, "image": "12.jpg" },
-    { "id": "13", "name": "豬肉冬粉", "englishName": "Pork clear noodles", "price": 80, "image": "13.jpg" },
-    { "id": "14", "name": "豬排骨冬粉", "englishName": "Pork ribs clear noodles", "price": 80, "image": "14.jpg" },
-    { "id": "15", "name": "雞肉冬粉", "englishName": "Chicken clear noodles", "price": 80, "image": "15.jpg" },
-    { "id": "16", "name": "海鮮冬粉", "englishName": "Seafood clear noodles", "price": 100, "image": "16.jpg" },
-    { "id": "17", "name": "炸春捲（一個）", "englishName": "Fried spring rolls", "price": 20, "image": "17.jpg" }
+    { "id": "1", "store": "1", "name": "牛肉河粉", "englishName": "Beef rice noodles", "price": 100, "image": "1_01.jpg" },
+    { "id": "2", "store": "1", "name": "豬肉河粉", "englishName": "Pork rice noodles", "price": 80, "image": "1_02.jpg" },
+    { "id": "3", "store": "1", "name": "豬排骨河粉", "englishName": "Pork ribs rice noodles", "price": 80, "image": "1_03.jpg" },
+    { "id": "4", "store": "1", "name": "雞肉河粉", "englishName": "Chicken rice noodles", "price": 80, "image": "1_04.jpg" },
+    { "id": "5", "store": "1", "name": "乾河粉", "englishName": "Rice noodles without soup", "price": 80, "image": "1_05.jpg" },
+    { "id": "6", "store": "1", "name": "海鮮河粉", "englishName": "Seafood rice noodles", "price": 100, "image": "1_06.jpg" },
+    { "id": "7", "store": "1", "name": "餛飩河粉", "englishName": "Wonton rice noodles", "price": 80, "image": "1_07.jpg" },
+    { "id": "8", "store": "1", "name": "素食乾河粉", "englishName": "Vegetarian rice noodles without soup", "price": 80, "image": "1_08.jpg" },
+    { "id": "9", "store": "1", "name": "台灣乾麵", "englishName": "Noodles without soup", "price": 70, "image": "1_09.jpg" },
+    { "id": "10", "store": "1", "name": "越南乾麵", "englishName": "Vietnamese noodles without soup", "price": 70, "image": "1_10.jpg" },
+    { "id": "11", "store": "1", "name": "炸春捲涼拌米線", "englishName": "Cold rice thread noodles with fried spring rolls", "price": 100, "image": "1_11.jpg" },
+    { "id": "12", "store": "1", "name": "牛肉冬粉", "englishName": "Beef clear noodles", "price": 100, "image": "1_12.jpg" },
+    { "id": "13", "store": "1", "name": "豬肉冬粉", "englishName": "Pork clear noodles", "price": 80, "image": "1_13.jpg" },
+    { "id": "14", "store": "1", "name": "豬排骨冬粉", "englishName": "Pork ribs clear noodles", "price": 80, "image": "1_14.jpg" },
+    { "id": "15", "store": "1", "name": "雞肉冬粉", "englishName": "Chicken clear noodles", "price": 80, "image": "1_15.jpg" },
+    { "id": "16", "store": "1", "name": "海鮮冬粉", "englishName": "Seafood clear noodles", "price": 100, "image": "1_16.jpg" },
+    { "id": "17", "store": "1", "name": "炸春捲（一個）", "englishName": "Fried spring rolls", "price": 20, "image": "1_17.jpg" }
   ]
 }
