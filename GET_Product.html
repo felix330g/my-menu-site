@@ -61,6 +61,7 @@
           document.getElementById('productPrice').textContent = `售價：NT$ ${product.price}`;
           document.getElementById('productDescription').textContent = product.description || '';
           document.getElementById('productImage').src = `img/${product.id}.png`;
+
         } else {
           document.getElementById('productName').textContent = '找不到此商品';
           document.getElementById('errorMsg').textContent = '商品編號錯誤或不存在';
