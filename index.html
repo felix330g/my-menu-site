@@ -54,7 +54,7 @@
 
   <h1>宜親越南便當菜單</h1>
   <div class="menu-container" id="menuList"></div>
-    <div style="text-align: center; margin-top: 30px;">
+  <div style="text-align: center; margin-top: 30px;">
     <a href="index2.html">
       <button style="padding: 10px 20px; font-size: 16px;">下一頁 ➜</button>
     </a>
@@ -65,18 +65,19 @@
       .then(response => response.json())
       .then(data => {
         const menu = document.getElementById('menuList');
-        data.products.forEach(product => {
-          const a = document.createElement('a');
-          a.href = `GET_Product.html?id=${product.id}`;
-          a.className = 'menu-item';
-          a.innerHTML = `
-          <img src="img/${product.id}.png" alt="${product.name}">
-
-            <div class="name">${product.name}</div>
-            <div class="price">NT$ ${product.price}</div>
-          `;
-          menu.appendChild(a);
-        });
+        data.products
+          .filter(product => Number(product.id) <= 17)
+          .forEach(product => {
+            const a = document.createElement('a');
+            a.href = `GET_Product.html?id=${product.id}`;
+            a.className = 'menu-item';
+            a.innerHTML = `
+              <img src="img/${product.id}.png" alt="${product.name}">
+              <div class="name">${product.name}</div>
+              <div class="price">NT$ ${product.price}</div>
+            `;
+            menu.appendChild(a);
+          });
       })
       .catch(error => {
         console.error('無法載入菜單：', error);
