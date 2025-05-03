@@ -30,15 +30,19 @@
       color: #b22222;
       font-weight: bold;
     }
+    .error {
+      color: red;
+    }
   </style>
 </head>
 <body>
   <div class="product-box">
-    <img id="productImage" src="" alt="商品圖片">
+    <img id="productImage" src="" alt="商品圖片" onerror="this.style.display='none'">
     <h1 id="productName">載入中...</h1>
     <p id="productEnglishName"></p>
     <p id="productPrice" class="price"></p>
     <p id="productDescription"></p>
+    <p id="errorMsg" class="error"></p>
   </div>
 
   <script>
@@ -48,21 +52,23 @@
     fetch('Products.json')
       .then(res => res.json())
       .then(data => {
-        const product = data.products.find(p => p.id == productId);
+        const product = data.products.find(p => p.id === productId);
         if (product) {
           document.getElementById('productName').textContent = product.name;
           document.getElementById('productEnglishName').textContent = product.englishName || '';
           document.getElementById('productPrice').textContent = `售價：NT$ ${product.price}`;
-          document.getElementById('productImage').src = `img/${product.id}.png`;
           document.getElementById('productDescription').textContent = product.description || '';
+          document.getElementById('productImage').src = `img/${product.id}.png`;
         } else {
           document.getElementById('productName').textContent = '找不到此商品';
+          document.getElementById('errorMsg').textContent = '商品編號錯誤或不存在';
           document.getElementById('productImage').style.display = 'none';
         }
       })
       .catch(error => {
         console.error('載入失敗：', error);
         document.getElementById('productName').textContent = '發生錯誤';
+        document.getElementById('errorMsg').textContent = '無法載入商品資訊';
       });
   </script>
 </body>
