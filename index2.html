@@ -66,7 +66,11 @@
       .then(response => response.json())
       .then(data => {
         const menu = document.getElementById('menuList');
-        data.products.forEach(product => {
+
+        // 只顯示 id >= 18 的商品
+        const page2Items = data.products.filter(p => parseInt(p.id) >= 18);
+
+        page2Items.forEach(product => {
           const a = document.createElement('a');
           a.href = `GET_Product.html?id=${product.id}`;
           a.className = 'menu-item';
