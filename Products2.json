@@ -49,5 +49,12 @@
       "price": 80,
       "description": "無肉料理，清爽健康"
     }
+     {
+      "id": "25",
+      "name": "控肉飯包",
+      "englishName": "Braised Pork Bento",
+      "price": 85,
+      "description": "每位控肉，肥肉控的最愛"
+    },
   ]
 }
