@@ -53,7 +53,7 @@
           document.getElementById('productName').textContent = product.name;
           document.getElementById('productEnglishName').textContent = product.englishName || '';
           document.getElementById('productPrice').textContent = `售價：NT$ ${product.price}`;
-          document.getElementById('productImage').src = `img/${product.store}/${product.id}.png`;
+          document.getElementById('productImage').src = `img/${product.id}.png`;
           document.getElementById('productDescription').textContent = product.description || '';
         } else {
           document.getElementById('productName').textContent = '找不到此商品';
