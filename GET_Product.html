@@ -37,7 +37,9 @@
 </head>
 <body>
   <div class="product-box">
-    <img id="productImage" src="" alt="商品圖片" onerror="this.style.display='none'">
+  <img id="productImage" src="" alt="商品圖片"
+     onerror="this.src='img/default.png'; this.classList.add('error-image');">
+
     <h1 id="productName">載入中...</h1>
     <p id="productEnglishName"></p>
     <p id="productPrice" class="price"></p>
