@@ -75,11 +75,10 @@
     <p id="productDescription"></p>
     <p id="errorMsg" class="error"></p>
  <div class="back-button">
-  <a href="index.html">
+  <a id="backLink" href="#">
     <button class="styled-button">⬅ 回到菜單首頁</button>
   </a>
 </div>
-    </div>
   
   </div>
 
@@ -109,6 +108,14 @@
         document.getElementById('productName').textContent = '發生錯誤';
         document.getElementById('errorMsg').textContent = '無法載入商品資訊';
       });
+    // 根據商品 id 判斷要返回哪一頁
+const backLink = document.getElementById('backLink');
+if (parseInt(productId) >= 18) {
+  backLink.href = 'menu2.html';
+} else {
+  backLink.href = 'index.html';
+}
+
   </script>
 </body>
 </html>
