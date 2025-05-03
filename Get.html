@@ -55,10 +55,10 @@
           a.className = 'menu-item';
 
           a.innerHTML = `
-            <img src="menu_site/img/1/${product.image}" alt="${product.name}">
-            <p>${product.name}</p>
-            <p class="price">NT$ ${product.price}</p>
-          `;
+  <img src="img/${product.store}/${product.id}.png" alt="${product.name}">
+  <div class="name">${product.name}</div>
+  <div class="price">NT$ ${product.price}</div>
+`;
 
           menu.appendChild(a);
         });
