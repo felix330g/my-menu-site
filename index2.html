@@ -56,7 +56,7 @@
   <div class="menu-container" id="menuList"></div>
 
   <div style="text-align: center; margin-top: 30px;">
-    <a href="index.html">
+    <a href="index.html" onclick="window.location.reload()">
       <button style="padding: 10px 20px; font-size: 16px;">⬅ 返回第一頁</button>
     </a>
   </div>
@@ -66,6 +66,7 @@
       .then(response => response.json())
       .then(data => {
         const menu = document.getElementById('menuList');
+        menu.innerHTML = '';
 
         // 只顯示 id >= 18 的商品
         const page2Items = data.products.filter(p => parseInt(p.id) >= 18);
