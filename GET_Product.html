@@ -78,42 +78,44 @@
     const productId = urlParams.get('id');
 
     async function loadProduct() {
-      try {
-        let data;
-        if (localStorage.getItem('productsCache')) {
-          data = JSON.parse(localStorage.getItem('productsCache'));
-        } else {
-          const res = await fetch('Products.json');
-          data = await res.json();
-          localStorage.setItem('productsCache', JSON.stringify(data));
-        }
-
-        const product = data.products.find(p => p.id === productId);
-        if (product) {
-          document.getElementById('productName').textContent = product.name;
-          document.getElementById('productEnglishName').textContent = product.englishName || '';
-          document.getElementById('productPrice').textContent = `售價：NT$ ${product.price}`;
-          document.getElementById('productDescription').textContent = product.description || '';
-
-          const imageEl = document.getElementById('productImage');
-          imageEl.src = `img/${product.id}.png`;
-          imageEl.onerror = () => {
-            imageEl.src = 'img/default.png';
-            imageEl.classList.add('error-image');
-          };
-
-          document.getElementById('backLink').href = 'index.html';
-        } else {
-          document.getElementById('productName').textContent = '找不到此商品';
-          document.getElementById('errorMsg').textContent = '商品編號錯誤或不存在';
-          document.getElementById('productImage').style.display = 'none';
-        }
-      } catch (error) {
-        console.error('載入失敗：', error);
-        document.getElementById('productName').textContent = '發生錯誤';
-        document.getElementById('errorMsg').textContent = '無法載入商品資訊';
-      }
+  try {
+    let data;
+    if (localStorage.getItem('productsCache')) {
+      data = JSON.parse(localStorage.getItem('productsCache'));
+    } else {
+      const res = await fetch('Products.json');
+      data = await res.json();
+      localStorage.setItem('productsCache', JSON.stringify(data));
     }
+
+    const product = data.products.find(p => String(p.id) === String(productId));
+
+    if (product) {
+      document.getElementById('productName').textContent = product.name;
+      document.getElementById('productEnglishName').textContent = product.englishName || '';
+      document.getElementById('productPrice').textContent = `售價：NT$ ${product.price}`;
+      document.getElementById('productDescription').textContent = product.description || '';
+
+      const imageEl = document.getElementById('productImage');
+      imageEl.src = `img/${product.id}.png`;
+      imageEl.onerror = () => {
+        console.warn(`圖片載入失敗：img/${product.id}.png`);
+        imageEl.src = 'img/default.png';
+      };
+
+      document.getElementById('backLink').href = 'index.html';
+    } else {
+      document.getElementById('productName').textContent = '找不到此商品';
+      document.getElementById('errorMsg').textContent = '商品編號錯誤或不存在';
+      document.getElementById('productImage').style.display = 'none';
+    }
+  } catch (error) {
+    console.error('載入失敗：', error);
+    document.getElementById('productName').textContent = '發生錯誤';
+    document.getElementById('errorMsg').textContent = '⚠ 無法載入商品資訊，請稍後再試';
+  }
+}
+
 
     loadProduct();
   </script>
