@@ -99,13 +99,7 @@
 
         // ✅ 根據 id 設定返回按鈕連結
         const backLink = document.getElementById('backLink');
-        backLink.href = parseInt(productId) >= 18 ? 'index.html#bento' : 'index.html#vietnam';
-      } else {
-        document.getElementById('productName').textContent = '找不到此商品';
-        document.getElementById('errorMsg').textContent = '商品編號錯誤或不存在';
-        document.getElementById('productImage').style.display = 'none';
-      }
-    })
+        backLink.href ='index.html';
     .catch(error => {
       console.error('載入失敗：', error);
       document.getElementById('productName').textContent = '發生錯誤';
